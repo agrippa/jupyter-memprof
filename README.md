@@ -38,4 +38,19 @@ likely start with small and relatively simple utilities, but I hope to expand it
 over time. The sections below outline different utilities and examples included
 in this repo.
 
-## `jupyter_memprof.big_objs`
+## `jupyter_memprof.big_objs()`
+
+The `big_objs` method can be used to list (by name) a set of live, large objects
+in memory in the current Python instance.
+
+`big_objs` uses the `guppy` package to iterate over objects in memory to pull
+out and return a list of objects that the programmer should consider deleting.
+In general, the Python `del` keyword can then be used to remove references to
+these objects in the Jupyter notebook, and `gc.collect()` can be used to force
+the re-collection of that memory.
+
+An example of this API is included in `notebooks/sandbox_lib.ipynb`.
+
+## Contact
+
+Questions about this repo can be directed to Max Grossman (max@7pod.tech).
